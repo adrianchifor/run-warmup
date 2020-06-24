@@ -1,0 +1,27 @@
+project: your-project
+region: europe-west1
+
+allow-invoke:
+  - your-user@domain.com
+
+service1:
+  image: gcr.io/${project}/your-service1:latest
+
+service2:
+  image: gcr.io/${project}/your-service2:latest
+
+run-warmup:
+  dir: .
+  image: gcr.io/${project}/run-warmup:latest
+  concurrency: 1
+  max-instances: 1
+  env:
+    # GET <URL>/health on services
+    PATH: /health
+  cron:
+    # Every 5min
+    schedule: "*/5 * * * *"
+  links:
+    # These will set SERVICE1_URL and SERVICE2_URL env vars
+    - service1
+    - service2
