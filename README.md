@@ -1,6 +1,7 @@
 # Cloud Run Warmup
 
-![Docker](https://github.com/adrianchifor/run-warmup/workflows/Publish%20Docker/badge.svg)
+
+[![Docker](https://github.com/adrianchifor/run-warmup/workflows/Publish%20Docker/badge.svg)](https://github.com/adrianchifor/run-warmup/actions?query=workflow%3A%22Publish+Docker%22)
 
 Very simple service to keep your [Cloud Run](https://cloud.google.com/run/) services warm. Triggered by [Cloud Scheduler](https://cloud.google.com/scheduler/) and can be easily managed with [run-marathon](https://github.com/adrianchifor/run-marathon).
 
@@ -27,10 +28,10 @@ $ run deploy
 ...
 
 $ run ls
-   SERVICE                 REGION        URL                             LAST DEPLOYED BY      LAST DEPLOYED AT
-✔  service1                europe-west1  https://service1.a.run.app      your-user@domain.com  some time
-✔  service2                europe-west1  https://service2.a.run.app      your-user@domain.com  some time
-✔  run-warmup              europe-west1  https://run-warmup.a.run.app    your-user@domain.com  some time
+   SERVICE           REGION         URL                             LAST DEPLOYED BY       LAST DEPLOYED AT
+✔  service1          europe-west1   https://service1.a.run.app      your-user@domain.com   some time
+✔  service2          europe-west1   https://service2.a.run.app      your-user@domain.com   some time
+✔  run-warmup        europe-west1   https://run-warmup.a.run.app    your-user@domain.com   some time
 ```
 
 ## Configuration
