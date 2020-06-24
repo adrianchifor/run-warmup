@@ -9,9 +9,6 @@ from flask import Flask
 PATH = os.getenv("PATH", "/")
 TIMEOUT = int(os.getenv("TIMEOUT", 30))
 SERVICES = [value for (key, value) in os.environ.items() if "_URL" in key]
-if len(SERVICES) == 0:
-    print("No services found. Use '<SERVICE NAME>_URL = <SERVICE URL>' env var syntax")
-    sys.exit(1)
 
 app = Flask(__name__)
 
@@ -25,6 +22,11 @@ def setup_logging():
 
 @app.route("/", methods=["POST"])
 def handler():
+    if len(SERVICES) == 0:
+        error_msg = "No services found. Use '<SERVICE NAME>_URL = <SERVICE URL>' env var syntax"
+        app.logger.error(error_msg)
+        return error_msg, 500
+
     threads = []
     for service in SERVICES:
         t = Thread(target=http_get_service, args=(service,))
