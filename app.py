@@ -7,7 +7,7 @@ from flask import Flask
 
 PATH = os.getenv("PATH", "/")
 TIMEOUT = int(os.getenv("TIMEOUT", 30))
-SERVICES = [value for (key, value) in os.environ.items() if "_URL" in key]
+SERVICES = [value for (key, value) in os.environ.items() if key.endswith("_URL")]
 
 app = Flask(__name__)
 
