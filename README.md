@@ -16,7 +16,7 @@ pip3 install --user run-marathon
 
 Modify the example [run.yaml](./run.yaml) to add your services, link them and then build + deploy.
 
-Note: If you want to use a pre-built Docker image, you can `echo "FROM adrianchifor/run-warmup:latest" > Dockerfile` and change `dir` to the location of the Dockerfile.
+Note: If you want to use a pre-built Docker image, you can `echo "FROM ghcr.io/adrianchifor/run-warmup:latest" > Dockerfile` and change `dir` to the location of the Dockerfile.
 ```
 $ run check
 Cloud Run, Build, Container Registry, PubSub and Scheduler APIs are enabled. All good!
