@@ -3,6 +3,8 @@
 
 [![Docker](https://github.com/adrianchifor/run-warmup/workflows/Publish%20Docker/badge.svg)](https://github.com/adrianchifor/run-warmup/actions?query=workflow%3A%22Publish+Docker%22)
 
+**Cloud Run now supports [minimum number of container instances](https://cloud.google.com/run/docs/configuring/min-instances), so pre-warming is no longer required.**
+
 Very simple service to keep your [Cloud Run](https://cloud.google.com/run/) services warm. Triggered by [Cloud Scheduler](https://cloud.google.com/scheduler/) and can be easily managed with [run-marathon](https://github.com/adrianchifor/run-marathon).
 
 On a short cron schedule, it goes through services defined as environment variables having the suffix `_URL` (like `[SERVICE NAME]_URL = [SERVICE URL]`) and makes authenticated HTTP GETs to keep them running.
